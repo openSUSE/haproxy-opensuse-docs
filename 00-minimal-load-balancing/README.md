@@ -4,9 +4,9 @@
 
 - 2 Instances, Virtual Machines or bare-metal. We will use to openSUSE Virtual Machines KVM, but it doesn't matter.
   * 1 will be  the haproxy Load Balancer
-  * 1 will be the apache server. 
+  * 1 will be the apache server.
 
-- I assume the two machine are connected on same network or can communicate each other. 
+- I assume the two machine are connected on same network or can communicate each other.
 
 
 # HOWTO:
@@ -14,7 +14,7 @@
 1) Configure apache server
 2) Configure haproxy
 
-# 1) apache2 server 
+# 1) apache2 server
 
 In my conf, it has adress: `10.162.29.89`
 
@@ -45,14 +45,14 @@ mkdir /srv/www/htdocs/example
 echo "I am the webserver-apache, welcome" > /srv/www/htdocs/example/index.html
 ```
 
-* add host entry with 
+* add host entry with
 ```
 echo "127.0.0.1 www.example.com" >> /etc/hosts
 ```
 
 * start web-server
 ```
-systemctl restart apache
+systemctl restart apache2
 ```
 
 * visiting the page on you web-browser `http://10.162.29.89` ( where the IP is your public IP of server)
@@ -69,7 +69,7 @@ zypper in haproxy
 
 ### Configure
 
-* Edit `/etc/haproxy/haproxy.cfg` 
+* Edit `/etc/haproxy/haproxy.cfg`
 
 In my conf:
 * `10.15.29.89` is the apache2 server.
